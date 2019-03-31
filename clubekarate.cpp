@@ -50,10 +50,61 @@ void printGrafo(clubeKarate clube){
     }
 }
 
+void bronKerbosch(bitset<34> conjuntoR, bitset<34> conjuntoP, bitset<34> conjuntoX, vector<bitset<34>> &res, vector<bitset<34>> &vizinhos){
+    if(conjuntoP.none() && conjuntoX.none()){
+        res.push_back(conjuntoR);
+    }
+    for(int i = 0; i < 35; ++i){
+        if(conjuntoP[i]){
+            bronKerbosch(
+                conjuntoR | bitset<34>().set(i, 1), // União do conjunto R com o conjunto {i}
+                conjuntoP & vizinhos[i], // Intersecção conjunto P com os vizinhos de i
+                conjuntoX & vizinhos[i], // Intersecção conjunto X com os vizinhos de i
+                res, 
+                vizinhos); 
+            conjuntoP[i] = 0; // Complementar conjuntoP em relação ao conjunto {i}
+            conjuntoX.set(i); // União do conjunto R com o conjunto {i}
+        }
+    }
+}
+
 int main(int argc, char const *argv[]){
     clubeKarate clube;
+    bitset<34> R, // Conjunto R
+        P, // Conjunto P
+        X; // Contunto X
+    vector<bitset<34>> vizinhos;
+    vector<bitset<34>> res;
+    vector<vector<int>> resposta; // Resposta Apresentavel
     clube = criaGrafo(clube);
     printGrafo(clube);
+    
+    vizinhos.resize(clube.size());
+    for(int i = 0; i < clube.size(); i++){
+        for(int j = 0; j < clube[i].size(); j++){
+            vizinhos[i].set(clube[i][j]);
+        }
+    }
+    cout << 1 << endl;
+    P.set();
+    bronKerbosch(R, P, X, res, vizinhos);
+    resposta.resize(res.size());
+    for(int i = 0; i < res.size(); i++){
+        for(int j = 0; j < 34; ++j){
+            if(res[i][j]){
+                resposta[i].push_back(j);
+            }
+        }
+    }
+    cout << endl << "Existem " << res.size() << " cliques maximais." << endl;
+    for(int i = 0; i < resposta.size(); i++){
+        auto &p = resposta[i];
+        cout << "Clique maximal " << i+1 <<"\t, com " << p.size() << " e vertice pertencentes ao conjuto { ";
+        for(int j = 0; j < p.size()-1; j++){
+            cout << p[j] << ", ";
+        }
+        cout << p[p.size()-1]+1 << " }" << endl;
+    }
     return 0;
 }
 
