@@ -85,7 +85,18 @@ int main(int argc, char const *argv[]){
             vizinhos[i].set(clube[i][j]);
         }
     }
-    cout << 1 << endl;
+    for(int i = 0; i < vizinhos.size(); i++){
+        int numerador = 0;
+        int n = vizinhos[i].count();
+        for(int j = 0; j < 34; j++){
+            if(vizinhos[i][j] && j != i){
+                numerador += ((vizinhos[j] & vizinhos[i]) | bitset<34>().set(1)).count();
+            }
+        }
+        cout << (double)numerador/((n+2)*(n-1)) << endl;
+        //cout << numerador << ' ' << ((n+2)*(n+1)) << endl;
+
+    }
     P.set();
     bronKerbosch(R, P, X, res, vizinhos);
     resposta.resize(res.size());
@@ -101,7 +112,7 @@ int main(int argc, char const *argv[]){
         auto &p = resposta[i];
         cout << "Clique maximal " << i+1 <<"\t, com " << p.size() << " e vertice pertencentes ao conjuto { ";
         for(int j = 0; j < p.size()-1; j++){
-            cout << p[j] << ", ";
+            cout << p[j]+1 << ", ";
         }
         cout << p[p.size()-1]+1 << " }" << endl;
     }
