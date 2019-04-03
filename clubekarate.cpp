@@ -76,11 +76,13 @@ int main(int argc, char const *argv[]){
     vector<bitset<34>> vizinhos;
     vector<bitset<34>> res;
     vector<vector<int>> resposta; // Resposta Apresentavel
-    vector<double> coeficienteAglomeracao(34);
-    double coeficienteAglomeracaoMedio;
+    vector<double> coeficienteAglomeracao(34); // Coeficiente de aglomeração de cada vertice
+    double coeficienteAglomeracaoMedio; // Coeviciente de agomeração médio
     clube = criaGrafo(clube);
     printGrafo(clube);
     
+    /* Cria uma matriz de adjacencia com a lista de adjacencia
+    */
     vizinhos.resize(clube.size());
     for(int i = 0; i < clube.size(); i++){
         for(int j = 0; j < clube[i].size(); j++){
@@ -88,15 +90,18 @@ int main(int argc, char const *argv[]){
         }
     }
     cout << endl;
-    for(int i = 0; i < vizinhos.size(); i++){
+    /* Calcula o coeficiente de agloreração e o coeficiete de aglomeração média
+        O Coeficiente de aglomeração média é a média do coeficiente de agloreração de cada vértice
+    */
+    for(int i = 0; i < clube.size(); i++){
         int numerador = 0;
         int n = vizinhos[i].count();
-        for(int j = 0; j < 34; j++){
-            if(vizinhos[i][j] && j != i){
-                numerador += (vizinhos[j] & vizinhos[i]).count();
-            }
+        /* Nesse laço o número de vizinho tem conexões entre si é contado em dobro Ex.: E[i][j] e E[j][i] são contados */
+        for(int j = 0; j < clube[i].size(); j++){
+            numerador += (vizinhos[clube[i][j]] & vizinhos[i]).count();
         }
-        coeficienteAglomeracao[i] = (n == 1 ? (double)0.0 : (double)numerador/(n*(n-1)));
+        /* Aqui o coeficiente é calculado */
+        coeficienteAglomeracao[i] = (n == 1 ? (double)0.0 : (double)numerador/(n*(n-1))); /* O denominador é n*(n-1), pois, o mesmo vertice é contoado 2 vezes em direções opostas */
         coeficienteAglomeracaoMedio += coeficienteAglomeracao[i];
         cout << "O Coeficiente de aglomeracao para o vertice " << setfill(' ') << setw(2) << i+1 <<  " eh " << coeficienteAglomeracao[i] << endl;
     }
