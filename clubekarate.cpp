@@ -40,7 +40,7 @@ clubeKarate criaGrafo(clubeKarate clube){
 void printGrafo(clubeKarate clube){
     int i = 1, grau = 0;
     for(vertex v:clube){ //para cada pessoa no clube faça
-        cout << "Vertice : " << i ;
+        cout << "Vertice : " << setfill(' ') << setw(2) << i ;
         i++;
         for(int numero:v){ //para cada amigo da pessoa no clube faça 
             grau++;        //calculo de amigos
@@ -76,6 +76,8 @@ int main(int argc, char const *argv[]){
     vector<bitset<34>> vizinhos;
     vector<bitset<34>> res;
     vector<vector<int>> resposta; // Resposta Apresentavel
+    vector<double> coeficienteAglomeracao(34);
+    double coeficienteAglomeracaoMedio;
     clube = criaGrafo(clube);
     printGrafo(clube);
     
@@ -85,18 +87,22 @@ int main(int argc, char const *argv[]){
             vizinhos[i].set(clube[i][j]);
         }
     }
+    cout << endl;
     for(int i = 0; i < vizinhos.size(); i++){
         int numerador = 0;
         int n = vizinhos[i].count();
         for(int j = 0; j < 34; j++){
             if(vizinhos[i][j] && j != i){
-                numerador += ((vizinhos[j] & vizinhos[i]) | bitset<34>().set(1)).count();
+                numerador += (vizinhos[j] & vizinhos[i]).count();
             }
         }
-        cout << (double)numerador/((n+2)*(n-1)) << endl;
-        //cout << numerador << ' ' << ((n+2)*(n+1)) << endl;
-
+        coeficienteAglomeracao[i] = (n == 1 ? (double)0.0 : (double)numerador/(n*(n-1)));
+        coeficienteAglomeracaoMedio += coeficienteAglomeracao[i];
+        cout << "O Coeficiente de aglomeracao para o vertice " << setfill(' ') << setw(2) << i+1 <<  " eh " << coeficienteAglomeracao[i] << endl;
     }
+    coeficienteAglomeracaoMedio /= vizinhos.size();
+    cout << endl;
+    cout << "O Coeficiente de aglomeracao para o vertice medio eh " << coeficienteAglomeracaoMedio << endl;
     P.set();
     bronKerbosch(R, P, X, res, vizinhos);
     resposta.resize(res.size());
@@ -107,10 +113,11 @@ int main(int argc, char const *argv[]){
             }
         }
     }
-    cout << endl << "Existem " << res.size() << " cliques maximais." << endl;
+    cout << endl;
+    cout << "Existem " << res.size() << " cliques maximais." << endl;
     for(int i = 0; i < resposta.size(); i++){
         auto &p = resposta[i];
-        cout << "Clique maximal " << i+1 <<"\t, com " << p.size() << " e vertice pertencentes ao conjuto { ";
+        cout << "Clique maximal " << setfill(' ') << setw(2) << i+1 <<", com " << p.size() << " e vertice pertencentes ao conjuto { ";
         for(int j = 0; j < p.size()-1; j++){
             cout << p[j]+1 << ", ";
         }
@@ -118,4 +125,3 @@ int main(int argc, char const *argv[]){
     }
     return 0;
 }
-
