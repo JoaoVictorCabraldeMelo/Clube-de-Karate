@@ -24,19 +24,20 @@
     <img src="logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">TAG-Clube de Karatê</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Projeto de Teoria e Aplicação de Grafos - 1 Aplicação do Algoritmo de BronKerbosch
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://en.wikipedia.org/wiki/Bron-Kerbosch_algorithm"><strong>
+    Veja a ideia do algoritmo BronKerbosh aqui »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://www.youtube.com/watch?v=132XR-RLNoY">Veja uma Demonstração</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://www.facebook.com/joao.cabraldemelo.5">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/JoaoVictorCabraldeMelo">Request Feature</a>
   </p>
 </p>
 
