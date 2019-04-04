@@ -109,11 +109,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-João Victor Cabral de Melo - [@your_twitter](https://twitter.com/CabralJoaoVicto)
+João Victor Cabral de Melo - 16/0127670 - [@your_twitter](https://twitter.com/CabralJoaoVicto)
 
 Project Link: [https://github.com/JoaoVictorCabraldeMelo/Clube-de-Karate](https://github.com/JoaoVictorCabraldeMelo/Clube-de-Karate)
 
-Oscar Madureira Silva - 
+Oscar Madureira Silva - 17/0112209
 
 Project Link: [https://github.com/JoaoVictorCabraldeMelo/Clube-de-Karate](https://github.com/JoaoVictorCabraldeMelo/Clube-de-Karate)
 
