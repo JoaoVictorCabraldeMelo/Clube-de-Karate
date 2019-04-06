@@ -113,7 +113,7 @@ João Victor Cabral de Melo - 16/0127670 - [@your_twitter](https://twitter.com/C
 
 Project Link: [https://github.com/JoaoVictorCabraldeMelo/Clube-de-Karate](https://github.com/JoaoVictorCabraldeMelo/Clube-de-Karate)
 
-Oscar Madureira Silva - 17/0112209
+Oscar E. B. Madureira da Silva - 17/0112209
 
 Project Link: [https://github.com/JoaoVictorCabraldeMelo/Clube-de-Karate](https://github.com/JoaoVictorCabraldeMelo/Clube-de-Karate)
 
