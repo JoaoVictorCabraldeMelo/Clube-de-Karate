@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define W(x, y) cerr << "\033[31m" << #x << " = " << x << "\033[0m" << y;
 
 using namespace std;
 
@@ -122,7 +123,7 @@ int main(int argc, char const *argv[]){
     cout << "Existem " << res.size() << " cliques maximais." << endl;
     for(int i = 0; i < resposta.size(); i++){
         auto &p = resposta[i];
-        cout << "Clique maximal " << setfill(' ') << setw(2) << i+1 <<", com " << p.size() << " e vertice pertencentes ao conjuto { ";
+        cout << "Clique maximal " << setfill(' ') << setw(2) << i+1 <<", com " << p.size() << " vertices pertencentes ao conjuto { ";
         for(int j = 0; j < p.size()-1; j++){
             cout << p[j]+1 << ", ";
         }
