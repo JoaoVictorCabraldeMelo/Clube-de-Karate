@@ -1,3 +1,12 @@
+/*
+Este Código foi feito pelo alunos :
+    Nome: Oscar E. B. Madureira da Silva
+    Matrícula:17/0112209
+    Nome: João Victor Cabral de Melo
+    Matrícula: 16/0127670
+    Estes alunos são estudantes da UnB Universidade de Brasília - Brasil
+    Este código foi criado como trabalho da matéria de TAG - Teoria e Aplicação de Grafos
+*/
 #include <bits/stdc++.h>
 #define W(x, y) cerr << "\033[31m" << #x << " = " << x << "\033[0m" << y;
 
