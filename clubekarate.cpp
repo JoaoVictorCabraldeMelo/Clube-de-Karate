@@ -1,6 +1,6 @@
 /*
 Este Código foi feito pelo alunos :
-    Nome: Oscar Madureira Silva
+    Nome: Oscar E. B. Madureira da Silva
     Matrícula:17/0112209
 
     Nome: João Victor Cabral de Melo
